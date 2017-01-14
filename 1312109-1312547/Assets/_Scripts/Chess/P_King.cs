@@ -41,4 +41,10 @@ public class P_King : BaseChess {
 
         return list;
     }
+
+    public override void BeAttackedBy(BaseChess enemy)
+    {
+        base.BeAttackedBy(enemy);
+        BaseGameCTL.Current.GameOver(enemy.Player);
+    }
 }

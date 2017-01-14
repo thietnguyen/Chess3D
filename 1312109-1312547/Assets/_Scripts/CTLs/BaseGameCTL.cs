@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BaseGameCTL : MonoBehaviour {
 
@@ -7,6 +8,8 @@ public class BaseGameCTL : MonoBehaviour {
 
     private EGameState _gameState;
     private EPlayer currentPlayer;
+
+    public Text t_PlayerWin;
 
     public EGameState GameState
     {
@@ -44,5 +47,18 @@ public class BaseGameCTL : MonoBehaviour {
     public void SwichTurn()
     {
         CurrentPlayer = CurrentPlayer == EPlayer.WHITE ? EPlayer.BLACK : EPlayer.WHITE;
+    }
+
+    public EGameState CheckGameState()
+    {
+        return EGameState.PLAYING;
+    }
+
+    public void GameOver(EPlayer winPlayer)
+    {
+        if (winPlayer == EPlayer.BLACK)
+            t_PlayerWin.text = "WINNER: BLACK";
+        else
+            t_PlayerWin.text = "WINNER: WHITE";
     }
 }
