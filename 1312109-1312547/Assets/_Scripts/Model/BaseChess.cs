@@ -56,11 +56,31 @@ public abstract class BaseChess : MonoBehaviour {
             Location.Y * ChessBoard.Current.CELL_SIZE), 1f);
 
     }
-    public abstract void Move(Cell targetedCell);
+    public virtual void Move(Cell targetedCell)
+    {
+        this.SetNewLocation(targetedCell);
 
-    public abstract void Attack(Cell targetedCell);
+        BeUnselected();
 
-    public abstract void BeAttackedBy(BaseChess enemy);
+        BaseGameCTL.Current.SwichTurn();
+    }
+
+    public virtual void Attack(Cell targetedCell)
+    {
+        targetedCell.CurrentChess.BeAttackedBy(this);
+
+        _currentCell.SetCellState(Ecellstate.NORMAL);
+        this.SetNewLocation(targetedCell);
+        BeUnselected();
+
+        BaseGameCTL.Current.SwichTurn();
+    }
+
+    public virtual void BeAttackedBy(BaseChess enemy)
+    {
+        GameObject.Destroy(this.gameObject);
+        _currentCell.SetPiece(null);
+    }
 
     public abstract void BeSelected();
 
