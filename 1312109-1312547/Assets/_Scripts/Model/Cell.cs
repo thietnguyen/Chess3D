@@ -103,7 +103,7 @@ public class Cell : MonoBehaviour {
 
     public void MakeAMove(Cell targetedCell)
     {
-        Debug.Log("MakeAMove : " + targetedCell.Location);
+        //Debug.Log("MakeAMove : " + targetedCell.Location);
         CurrentChess.Move(targetedCell);
         State = Ecellstate.NORMAL;
         CurrentChess = null;

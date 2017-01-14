@@ -74,6 +74,7 @@ public abstract class BaseChess : MonoBehaviour {
         BeUnselected();
 
         BaseGameCTL.Current.SwichTurn();
+
     }
 
     public virtual void BeAttackedBy(BaseChess enemy)
