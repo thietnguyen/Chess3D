@@ -10,12 +10,7 @@ public class P_Pawn : BaseChess
     public override void Move(Cell targetedCell)
     {
         isFirstMoved = false;
-
-        this.SetNewLocation(targetedCell);
-
-        BeUnselected();
-
-        BaseGameCTL.Current.SwichTurn();
+        base.Move(targetedCell);
     }
 
     public override void BeSelected()
@@ -73,20 +68,20 @@ public class P_Pawn : BaseChess
             item.SetCellState(Ecellstate.TAGETED);
     }
 
-    public override void Attack(Cell targetedCell)
-    {
-        targetedCell.CurrentChess.BeAttackedBy(this);
+    //public override void Attack(Cell targetedCell)
+    //{
+    //    targetedCell.CurrentChess.BeAttackedBy(this);
 
-        _currentCell.SetCellState(Ecellstate.NORMAL);
-        this.SetNewLocation(targetedCell);
-        BeUnselected();
+    //    _currentCell.SetCellState(Ecellstate.NORMAL);
+    //    this.SetNewLocation(targetedCell);
+    //    BeUnselected();
         
-        BaseGameCTL.Current.SwichTurn();
-    }
+    //    BaseGameCTL.Current.SwichTurn();
+    //}
 
-    public override void BeAttackedBy(BaseChess enemy)
-    {
-        GameObject.Destroy(this.gameObject);
-        _currentCell.SetPiece(null);
-    }
+    //public override void BeAttackedBy(BaseChess enemy)
+    //{
+    //    GameObject.Destroy(this.gameObject);
+    //    _currentCell.SetPiece(null);
+    //}
 }
