@@ -91,6 +91,7 @@
     <Compile Include="Assets\_Scripts\Enums\EGameState.cs" />
     <Compile Include="Assets\_Scripts\Enums\EPlayer.cs" />
     <Compile Include="Assets\_Scripts\Enums\Ecellstate.cs" />
+    <Compile Include="Assets\_Scripts\Helpers\Helper.cs" />
     <Compile Include="Assets\_Scripts\Model\BaseChess.cs" />
     <Compile Include="Assets\_Scripts\Model\Cell.cs" />
     <Compile Include="Assets\_Scripts\Model\ChessBoard.cs" />
