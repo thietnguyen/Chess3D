@@ -10,4 +10,14 @@ public class P_Bishop : BaseChess {
     public override void BeSelected()
     {
     }
+
+    public override void Attack(Cell targetedCell)
+    {
+
+    }
+
+    public override void BeAttackedBy(BaseChess enemy)
+    {
+
+    }
 }

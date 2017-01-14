@@ -39,8 +39,13 @@ public abstract class BaseChess : MonoBehaviour {
         SetNewLocation(newCell);
     }
 
+    private int setPosCount = 0;
+
     protected void SetNewLocation(Cell newCell)
     {
+        setPosCount++;
+        if (setPosCount > 1)
+            this._currentCell.SetPiece(null);
         this._currentCell = newCell;
         newCell.SetPiece(this);
         this.Location = newCell.Location;
@@ -52,6 +57,10 @@ public abstract class BaseChess : MonoBehaviour {
 
     }
     public abstract void Move(Cell targetedCell);
+
+    public abstract void Attack(Cell targetedCell);
+
+    public abstract void BeAttackedBy(BaseChess enemy);
 
     public abstract void BeSelected();
 

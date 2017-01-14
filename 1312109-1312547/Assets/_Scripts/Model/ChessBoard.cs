@@ -85,7 +85,7 @@ public class ChessBoard : MonoBehaviour {
                         {
                             if (newCell.CurrentChess.Player != BaseGameCTL.Current.CurrentPlayer)
                             {
-                                Debug.Log("an");
+                                _currentSelectedCell.CurrentChess.Attack(newCell);
                             }
                         }
                         break;
