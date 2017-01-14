@@ -59,31 +59,39 @@ public class ChessBoard : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, 1000, CellLayerMask.value))
             {
                 Cell newCell = hit.collider.GetComponent<Cell>();
-                if (newCell.CurrentChess != null)
+
+                switch (newCell.State)
                 {
-                    //O Normal chuyen thanh Selected
-                    if (newCell.State == Ecellstate.NORMAL)
-                    {
-                        if (_currentSelectedCell != null)
+                    case Ecellstate.NORMAL:
+                        if (newCell.CurrentChess != null && newCell.CurrentChess.Player == BaseGameCTL.Current.CurrentPlayer)
                         {
-                            _currentSelectedCell.SetCellState(Ecellstate.NORMAL);
-                            if (_currentSelectedCell.CurrentChess != null)
-                                _currentSelectedCell.CurrentChess.BeUnselected();
+                            if (_currentSelectedCell != null)
+                            {
+                                _currentSelectedCell.SetCellState(Ecellstate.NORMAL);
+                                if (_currentSelectedCell.CurrentChess != null)
+                                    _currentSelectedCell.CurrentChess.BeUnselected();
+                            }
+                            _currentSelectedCell = newCell;
+                            _currentSelectedCell.SetCellState(Ecellstate.SELECTED);
                         }
+                        break;
 
-                        _currentSelectedCell = newCell;
-                        _currentSelectedCell.SetCellState(Ecellstate.SELECTED);
-                    }
-
-                    Debug.Log(newCell.Location + " - " + newCell.State);
-                }
-                else if (newCell.State == Ecellstate.TAGETED)
-                {
-                    _currentSelectedCell.MakeAMove(newCell);
+                    case Ecellstate.TAGETED:
+                        if (newCell.CurrentChess == null)
+                        {
+                            _currentSelectedCell.MakeAMove(newCell);
+                        }
+                        else
+                        {
+                            if (newCell.CurrentChess.Player != BaseGameCTL.Current.CurrentPlayer)
+                            {
+                                Debug.Log("an");
+                            }
+                        }
+                        break;
                 }
             }
         }
-        
 
     }
 
