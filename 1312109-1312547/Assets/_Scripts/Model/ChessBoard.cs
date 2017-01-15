@@ -35,10 +35,14 @@ public class ChessBoard : MonoBehaviour {
     {
         Current = this;
     }
+
     void Start()
     {
-        InitChessBoard();
-        InitChess();
+        //if (BaseGameCTL.Current.GameState == EGameState.PLAYING)
+        //{
+        //    InitChessBoard();
+        //    InitChess();
+        //}
     }
 
     public void Update()
@@ -187,6 +191,12 @@ public class ChessBoard : MonoBehaviour {
     public Vector3 CanculatePosition(int i, int j)
     {
         return basePosition + new Vector3(i * CELL_SIZE, 0, j * CELL_SIZE);
+    }
+
+    public void DestroyChessBoard()
+    {
+        chess = new List<BaseChess>();
+        _cell = new Cell[8][];
     }
 
 }

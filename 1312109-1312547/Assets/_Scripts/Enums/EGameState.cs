@@ -3,6 +3,6 @@ using System.Collections;
 
 public enum EGameState
 {
-    GAME_OVER, PLAYING
+    GAME_OVER, PLAYING, START
 
 }
