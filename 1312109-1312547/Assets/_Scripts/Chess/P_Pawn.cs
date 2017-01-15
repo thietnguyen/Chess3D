@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.IO;
+using System.Text;
 
 public class P_Pawn : BaseChess
 {
@@ -11,6 +13,19 @@ public class P_Pawn : BaseChess
     {
         isFirstMoved = false;
         base.Move(targetedCell);
+        //if ((BaseGameCTL.Current.CurrentPlayer == EPlayer.WHITE && targetedCell.Location.Y == 7) || (BaseGameCTL.Current.CurrentPlayer == EPlayer.BLACK && targetedCell.Location.Y == 0))
+        //{
+        //    this.SetNewLocation(targetedCell);
+        //    this._currentCell = null;
+        //    GameObject.Destroy(targetedCell.CurrentChess);
+        //    BaseChess pawn_invol = new P_Queen();
+        //    targetedCell.SetPiece(pawn_invol);
+        //    Debug.Log("Tien hoa");
+        //}
+        //else
+        //    this.SetNewLocation(targetedCell);
+        //base.BeUnselected();
+        //BaseGameCTL.Current.SwichTurn();
     }
 
     public override void BeSelected()
@@ -66,22 +81,6 @@ public class P_Pawn : BaseChess
 
         foreach (var item in _targetedCell)
             item.SetCellState(Ecellstate.TAGETED);
+
     }
-
-    //public override void Attack(Cell targetedCell)
-    //{
-    //    targetedCell.CurrentChess.BeAttackedBy(this);
-
-    //    _currentCell.SetCellState(Ecellstate.NORMAL);
-    //    this.SetNewLocation(targetedCell);
-    //    BeUnselected();
-        
-    //    BaseGameCTL.Current.SwichTurn();
-    //}
-
-    //public override void BeAttackedBy(BaseChess enemy)
-    //{
-    //    GameObject.Destroy(this.gameObject);
-    //    _currentCell.SetPiece(null);
-    //}
 }

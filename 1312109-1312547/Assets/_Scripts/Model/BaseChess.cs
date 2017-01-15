@@ -58,6 +58,7 @@ public abstract class BaseChess : MonoBehaviour {
     }
     public virtual void Move(Cell targetedCell)
     {
+        System.Console.WriteLine("Make a move" + targetedCell.ToString());
         this.SetNewLocation(targetedCell);
 
         BeUnselected();

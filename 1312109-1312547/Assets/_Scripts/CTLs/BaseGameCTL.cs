@@ -2,7 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
 public class BaseGameCTL : MonoBehaviour {
+
+    public MovieTexture movie;
 
     public static BaseGameCTL Current;
 
@@ -69,7 +72,18 @@ public class BaseGameCTL : MonoBehaviour {
         Current = this;
         currentPlayer = EPlayer.WHITE;
         GameState = EGameState.START;
+        //movie.Play();
     }
+
+
+    //void Update()
+    //{
+    //    if (!movie.isPlaying)
+    //    {
+    //        movie.Stop();
+    //        GameObject.Find("Plane").SetActive(false);
+    //    }
+    //}
 
     public void OnGUI()
     {

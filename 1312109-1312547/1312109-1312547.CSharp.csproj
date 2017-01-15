@@ -77,7 +77,6 @@
   <ItemGroup>
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\_Scripts\CTLs\BaseGameCTL.cs" />
     <Compile Include="Assets\_Scripts\CTLs\ResourcesCTL.cs" />
     <Compile Include="Assets\_Scripts\Chess\P_Bishop.cs" />
@@ -96,6 +95,8 @@
     <Compile Include="Assets\_Scripts\Model\Cell.cs" />
     <Compile Include="Assets\_Scripts\Model\ChessBoard.cs" />
     <Compile Include="Assets\_Scripts\Model\ChessInfo.cs" />
+    <Compile Include="Assets\_Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\_Scripts\Video.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Demigiant\DOTween\DOTween.XML" />
